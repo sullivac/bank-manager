@@ -1,10 +1,10 @@
-﻿using System.IO;
+﻿using System.Data.SQLite;
+using System.IO;
 using System.Web.Configuration;
 using System.Web.Hosting;
 using System.Web.Http;
 using Microsoft.Owin;
 using Owin;
-using System.Data.SQLite;
 
 [assembly: OwinStartup(typeof(BankManager.Startup))]
 
@@ -19,6 +19,11 @@ namespace BankManager
 
         public void Configuration(IAppBuilder app)
         {
+            if (!Directory.Exists(HostingEnvironment.MapPath("~/App_Data")))
+            {
+                Directory.CreateDirectory(HostingEnvironment.MapPath("~/App_Data"));
+            }
+
             if (!File.Exists(HostingEnvironment.MapPath(WebConfigurationManager.AppSettings["sqliteFileName"])))
             {
                 SQLiteConnection.CreateFile(HostingEnvironment.MapPath(WebConfigurationManager.AppSettings["sqliteFileName"]));

@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Data;
 using System.Data.SQLite;
-using System.Web.Configuration;
 using BankManager.Models;
 
 namespace BankManager
