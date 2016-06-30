@@ -40,6 +40,11 @@ namespace BankManager
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional });
 
+            httpConfiguration.Routes.MapHttpRoute(
+                name: "transaction",
+                routeTemplate: "api/account/{accountId}/transaction",
+                defaults: new { controller = "transaction", id = RouteParameter.Optional });
+
             app.UseWebApi(httpConfiguration);
         }
     }
