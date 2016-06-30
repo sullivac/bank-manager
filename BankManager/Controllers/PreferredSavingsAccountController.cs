@@ -154,7 +154,7 @@ values (
                             command.Parameters.Add("@dateClosed", DbType.String).Value = DBNull.Value;
 
                         command.Parameters.Add("@balance", DbType.Double).Value = account.Balance;
-                        command.Parameters.Add("@interest", DbType.Double).Value = 0.01;
+                        command.Parameters.Add("@interest", DbType.Double).Value = 0.03;
                         command.Parameters.Add("@isOpen", DbType.Int32).Value = 1;
                         command.Parameters.Add("@accountTypeId", DbType.Int32).Value = (int)AccountType.PreferredSavings;
                         command.Parameters.Add("@customerId", DbType.String).Value = account.CustomerId.ToString("B");
